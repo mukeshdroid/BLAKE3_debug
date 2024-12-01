@@ -7,7 +7,7 @@ echo -n "Hello" | cargo run
 ```
 > This was done according to [this comment](https://github.com/BLAKE3-team/BLAKE3/issues/257#issuecomment-1262555746)
 
-
+---
 BLAKE3 is a cryptographic hash function that is:
 
 - **Much faster** than MD5, SHA-1, SHA-2, SHA-3, and BLAKE2.
