@@ -61,30 +61,30 @@ impl Platform {
             return Platform::Portable;
         }
 
-        #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
-        {
-            #[cfg(blake3_avx512_ffi)]
-            {
-                if avx512_detected() {
-                    return Platform::AVX512;
-                }
-            }
-            if avx2_detected() {
-                return Platform::AVX2;
-            }
-            if sse41_detected() {
-                return Platform::SSE41;
-            }
-            if sse2_detected() {
-                return Platform::SSE2;
-            }
-        }
-        // We don't use dynamic feature detection for NEON. If the "neon"
-        // feature is on, NEON is assumed to be supported.
-        #[cfg(blake3_neon)]
-        {
-            return Platform::NEON;
-        }
+        // #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
+        // {
+        //     #[cfg(blake3_avx512_ffi)]
+        //     {
+        //         if avx512_detected() {
+        //             return Platform::AVX512;
+        //         }
+        //     }
+        //     if avx2_detected() {
+        //         return Platform::AVX2;
+        //     }
+        //     if sse41_detected() {
+        //         return Platform::SSE41;
+        //     }
+        //     if sse2_detected() {
+        //         return Platform::SSE2;
+        //     }
+        // }
+        // // We don't use dynamic feature detection for NEON. If the "neon"
+        // // feature is on, NEON is assumed to be supported.
+        // #[cfg(blake3_neon)]
+        // {
+        //     return Platform::NEON;
+        // }
         Platform::Portable
     }
 

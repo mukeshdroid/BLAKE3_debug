@@ -42,6 +42,13 @@ fn compress_pre(
     counter: u64,
     flags: u8,
 ) -> [u32; 16] {
+    println!("\n NEW Compress \n");
+    println!("CV : {:?} ",cv);
+    println!("Block : {:?}", block );
+    println!("block_len : {:?}", block_len);
+    println!("counter : {:?}", counter);
+    println!("flags : {:?}", flags);
+
     let block_words = crate::platform::words_from_le_bytes_64(block);
 
     let mut state = [
@@ -129,6 +136,11 @@ pub fn hash1<const N: usize>(
     flags_end: u8,
     out: &mut CVBytes,
 ) {
+    println!("input : {:?}",input);
+    println!("CV : {:?}", key);
+    println!("Counter : {}", counter);
+    println!("flags : {} " , flags); 
+
     debug_assert_eq!(N % BLOCK_LEN, 0, "uneven blocks");
     let mut cv = *key;
     let mut block_flags = flags | flags_start;
